@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "22187402400",
+    "project_id": "spotifyclone-6c27e",
+    "storage_bucket": "spotifyclone-6c27e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:22187402400:android:bafb843883a791f707d5c5",
+        "android_client_info": {
+          "package_name": "com.ms.spotifycloneapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "22187402400-sfr194ufa5h0ev7qfm0ff7d21hkq65f9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0z2Xs6yEpMRl9Ee4Ou-qbQoFocQ5Y8RA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "22187402400-sfr194ufa5h0ev7qfm0ff7d21hkq65f9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
