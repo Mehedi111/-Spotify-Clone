@@ -5,6 +5,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.ms.spotifycloneapp.R
+import com.ms.spotifycloneapp.exoplayer.MusicServiceConnection
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -31,4 +32,10 @@ object AppModule {
             .error(R.drawable.ic_image)
             .diskCacheStrategy(DiskCacheStrategy.DATA)
     )
+
+    @Singleton
+    @Provides
+    fun provideMusicServiceConnector(
+        @ApplicationContext context: Context
+    ) = MusicServiceConnection(context)
 }
