@@ -1,6 +1,5 @@
 package com.ms.spotifycloneapp.ui.viewmodels
 
-import android.media.session.PlaybackState
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -21,7 +20,7 @@ import javax.inject.Inject
 @HiltViewModel
 class SongViewModel @Inject constructor(
     musicServiceConnection: MusicServiceConnection
-): ViewModel() {
+) : ViewModel() {
 
     private val playbackState = musicServiceConnection.playbackState
 
@@ -36,11 +35,11 @@ class SongViewModel @Inject constructor(
         updateCurrentPlayerPosition()
     }
 
-    private fun updateCurrentPlayerPosition(){
+    private fun updateCurrentPlayerPosition() {
         viewModelScope.launch {
-            while (true){
+            while (true) {
                 val pos = playbackState.value?.currentPlayBackPosition
-                if (curPlayingPosition.value != pos){
+                if (curPlayingPosition.value != pos) {
                     _curPlayingPosition.postValue(pos!!)
                     _curSongDuration.postValue(MusicService.curSongDuration)
                 }
