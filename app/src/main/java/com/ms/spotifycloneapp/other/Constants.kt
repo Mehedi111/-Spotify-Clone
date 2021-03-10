@@ -5,6 +5,7 @@ package com.ms.spotifycloneapp.other
  * @DATE: 2/28/2021, Sun
  */
 object Constants {
+    val UPDATE_PLAYER_POSITION_INTERVAL = 100L
     const val SONG_COLLECTION = "songs"
     const val MEDIA_ROOT_ID = "root_id"
 

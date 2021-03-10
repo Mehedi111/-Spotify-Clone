@@ -21,10 +21,10 @@ import javax.inject.Inject
  */
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    val musicServiceConnection: MusicServiceConnection
+    private val musicServiceConnection: MusicServiceConnection
 ) : ViewModel() {
     private val _mediaItem = MutableLiveData<Resource<List<Song>>>()
-    val mediaItem: LiveData<Resource<List<Song>>> = _mediaItem
+    val mediaItems: LiveData<Resource<List<Song>>> = _mediaItem
 
     val isConnected = musicServiceConnection.isConnected
     val networkError = musicServiceConnection.networkError

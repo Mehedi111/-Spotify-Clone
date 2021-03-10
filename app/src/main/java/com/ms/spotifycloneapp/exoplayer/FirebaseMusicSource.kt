@@ -50,33 +50,27 @@ class FirebaseMusicSource @Inject constructor(
                 .createMediaSource(song.getString(METADATA_KEY_MEDIA_URI).toUri())
             concatenatingMediaSource.addMediaSource(mediaSource)
         }
-
         return concatenatingMediaSource
     }
 
-
-    fun asMediaItem() =
-        songs.map {song ->
-            val desc = MediaDescriptionCompat.Builder()
-                .setMediaUri(song.getString(METADATA_KEY_MEDIA_URI).toUri())
-                .setTitle(song.description.title)
-                .setSubtitle(song.description.subtitle)
-                .setMediaId(song.description.mediaId)
-                .setIconUri(song.description.iconUri)
-                .build()
-
-            MediaBrowserCompat.MediaItem(desc, FLAG_PLAYABLE)
-        }.toMutableList()
-
+    fun asMediaItems() = songs.map { song ->
+        val desc = MediaDescriptionCompat.Builder()
+            .setMediaUri(song.getString(METADATA_KEY_MEDIA_URI).toUri())
+            .setTitle(song.description.title)
+            .setSubtitle(song.description.subtitle)
+            .setMediaId(song.description.mediaId)
+            .setIconUri(song.description.iconUri)
+            .build()
+        MediaBrowserCompat.MediaItem(desc, FLAG_PLAYABLE)
+    }.toMutableList()
 
     private val onReadyListeners = mutableListOf<(Boolean) -> Unit>()
 
     private var state: State = STATE_CREATED
         set(value) {
-            if (value == STATE_INITIALIZED || value == STATE_ERROR) {
+            if(value == STATE_INITIALIZED || value == STATE_ERROR) {
                 synchronized(onReadyListeners) {
                     field = value
-
                     onReadyListeners.forEach { listener ->
                         listener(state == STATE_INITIALIZED)
                     }
@@ -87,7 +81,7 @@ class FirebaseMusicSource @Inject constructor(
         }
 
     fun whenReady(action: (Boolean) -> Unit): Boolean {
-        if (state == STATE_CREATED || state == STATE_INITIALIZING) {
+        if(state == STATE_CREATED || state == STATE_INITIALIZING) {
             onReadyListeners += action
             return false
         } else {

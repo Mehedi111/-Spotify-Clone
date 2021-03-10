@@ -16,7 +16,7 @@
         android:theme="@style/AppTheme">
         <service android:name=".exoplayer.MusicService">
             <intent-filter>
-                <action android:name="action.media.browse.MediaBrowserService"/>
+                <action android:name="android.media.browse.MediaBrowserService"/>
             </intent-filter>
         </service>
         <activity android:name=".ui.MainActivity">

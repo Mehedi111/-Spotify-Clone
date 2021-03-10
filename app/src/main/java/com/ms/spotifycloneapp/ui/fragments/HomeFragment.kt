@@ -33,7 +33,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         setUpRV()
         subscribeToObserver()
 
-        songAdapter.setOnItemClickListener {
+        songAdapter.setItemClickListener {
             mainViewModel.playOrToggleSong(it)
         }
     }
@@ -44,7 +44,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun subscribeToObserver() {
-        mainViewModel.mediaItem.observe(viewLifecycleOwner) { result ->
+        mainViewModel.mediaItems.observe(viewLifecycleOwner) { result ->
             when(result.status){
 
                 Status.SUCCESS -> {
